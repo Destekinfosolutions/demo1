@@ -9,8 +9,8 @@ pipeline{
                 sshagent(['Deployment-server']) {
                sh '''
                             ssh -o StrictHostKeyChecking=no root@${staging_server} "
-                               
-                              scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/
+                               ls -a
+                              //scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/
                             "
                         '''
             }
