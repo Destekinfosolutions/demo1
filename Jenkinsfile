@@ -9,6 +9,7 @@ pipeline{
                 sshagent(['Deployment-server']) {
                sh '''
                             ssh -o StrictHostKeyChecking=no root@${staging_server} "
+                             cd /var/www/html/
                                ls -a
                               
                             "
