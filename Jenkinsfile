@@ -10,10 +10,11 @@ pipeline{
                sh '''
                             ssh -o StrictHostKeyChecking=no root@${staging_server} "
                                ls -a
-                              //scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/
+                              
                             "
                         '''
             }
+                //scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/
                // sh 'scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/'
                    
               
