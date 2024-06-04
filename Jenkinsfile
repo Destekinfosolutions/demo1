@@ -6,7 +6,15 @@ pipeline{
     stages{
         stage('Deploy to Remote'){
             steps{
-                sh 'scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/'
+                sshagent(['Deployment-server']) {
+               sh '''
+                            ssh -o StrictHostKeyChecking=no root@{staging_server} "
+                               
+                              scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/
+                            "
+                        '''
+            }
+               // sh 'scp -r ${WORKSPACE}/* root@${staging_server}:/var/www/html/'
                    
               
             }
