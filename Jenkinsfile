@@ -11,6 +11,7 @@ pipeline{
                             ssh -o StrictHostKeyChecking=no root@${staging_server} "
                              cd /var/www/html/
                                ls -a
+                               scp -i ${WORKSPACE}/* root@${staging_server}:/var/www/html/
                               
                             "
                         '''
